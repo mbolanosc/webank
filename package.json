@@ -1,0 +1,24 @@
+{
+  "name": "webank",
+  "version": "1.0.0",
+  "description": "Web app for banks using javascript, jquery, nodejs, mongodb, jade, bootstrap 😝 😛",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbolanosc/webank.git"
+  },
+  "author": "mbolanosc and mei18",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbolanosc/webank/issues"
+  },
+  "homepage": "https://github.com/mbolanosc/webank#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "^1.11.0"
+  }
+}
