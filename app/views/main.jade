@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  header
+    div.flat
+      img(src="img/flag.png" alt="CRFlag")
+    h1= title
+    
+
+  div.container
+    
+    div.row
+      div.box1.col-md-4
+        h3= cajas
+        p Descripcion
+        button(class="btn", name="id") Enviar
+        
+      div.box2.col-md-4
+        h3= plataforma
+        p Descripcion
+        button(class="btn", name="id") Enviar
+      
+      div.box3.col-md-4
+        h3= credito
+        p Descripcion
+        button(class="btn", name="id") Enviar
+    
+    div.row
+      div.box4.col-md-6
+        h3= Marchamo
+        p Descripcion
+        button(class="btn", name="id") Enviar
+     
+      div.box5.col-md-6
+        h3= Discapacidad
+        p Descripcion
+        button(class="btn", name="id") Enviar
