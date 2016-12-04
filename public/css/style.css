@@ -4,8 +4,9 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }
+
 header {
   margin-top: -60px;
 }
@@ -15,50 +16,35 @@ img {
   height: auto;
 }
 
-h1 {
-  text-align: center;
+.navbar {
+  background-color: #8CB116;
 }
+
+.navbar-brand,
+.f-nav{
+  color: black;
+}
+
+
 .row {
   text-align: center;
   margin-top: 20px;
 }
 
-.box1 {
-  background-color: #E3B33B;
-  height: 200px;
-  max-width: 350px;
-  margin-left: 20px;
-  border-radius: 20px;
-}
-.box2 {
-  background-color: #E3B33B;
-  height: 200px;
-  max-width: 350px;
-  margin-left: 20px;
-  border-radius: 20px;
-}
-.box3 {
-  background-color: #E3B33B;
-  height: 200px;
-  max-width: 350px;
-  margin-left: 20px;
-  border-radius: 20px;
-}
-.box4 {
+.box {
   background-color: #8CB116;
-  height: 200px;
-  max-width: 535px;
+  color: black;
+  height: 210px;
+  max-width: 210px;
   margin-left: 20px;
-  border-radius: 20px;
-}
-.box5 {
-  background-color: #8CB116;
-  height: 200px;
-  max-width: 535px;
-  margin-left: 20px;
-  border-radius: 20px;
+  border-radius: 200px;
+  margin-top: 100px;
 }
 
-p {
-  margin-top: 20px;
+.text-box {
+  margin-top: 70px;
+}
+
+.lText-box {
+  margin-top: 40px;
 }
