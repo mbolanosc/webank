@@ -8,11 +8,9 @@ module.exports = function(app) {
   app.use('/', router);
 };
 
-//Ruta de la primera vista
-router.get('/main', function(req, res, next) {
-
-  Fichas.find(function(err) //Busca el modelo dentro del MVC
-    {
+//Ruta de la  vista principal
+router.get('/', function(req, res, next) {
+  Fichas.find(function(err){
       if (err) return next(err);
       res.render('main', {
         title: 'Banco de la República Costarricense',
@@ -23,4 +21,12 @@ router.get('/main', function(req, res, next) {
         Discapacidad: 'Personas con Discapacidad'
       });
     });
+});
+
+//Ruta de para obtener cupon
+router.post('/hola', function(req, res) {
+  console.log('HOLA@@#@');
+
+
+  res.redirect('/');
 });
