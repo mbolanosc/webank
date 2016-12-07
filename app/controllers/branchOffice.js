@@ -26,9 +26,13 @@ router.get('/', function(req, res, next) {
 //Ruta de para obtener cupon
 router.post('/getTicket', function(req, res) {
   var letterForTicketClients = "C",
-  var countTicketsClients = "001",
-  var typeOfTicket = req.body.ticket;
+      countTicketsClients = 0,
+      currentTicket,
+      typeOfTicket = req.body.ticket;
+  //sumar la ficha
+      currentTicket = countTicketsClients + 1;
   console.log('SELECCIONADO PARA FICHA ' , typeOfTicket);
+  console.log('nueva ficha ', countTicketsClients);
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
