@@ -25,8 +25,7 @@ router.get('/', function(req, res, next) {
 
 //Ruta de para obtener cupon
 router.post('/getTicket', function(req, res) {
-  console.log('HOLA@@#@');
-
+  console.log('asdasdasda');
 
   res.redirect('/');
 });
