@@ -26,6 +26,8 @@ router.get('/', function(req, res, next) {
 //Ruta de para obtener cupon
 router.post('/getTicket', function(req, res) {
   console.log('FUNCION PARA OBTENER TIQUETE');
+  var typeOfTicket = req.body.cajas;
+  console.log('SELECCIONADO PARA FICHA ' , );
 
 
 
