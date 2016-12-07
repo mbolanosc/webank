@@ -2,7 +2,9 @@ var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
     //Llama el modelo
-    Fichas = mongoose.model('bankMod');
+    Fichas = mongoose.model('bankMod'),
+    arrCajas = [];
+
 
 module.exports = function(app) {
   app.use('/', router);
@@ -11,14 +13,15 @@ module.exports = function(app) {
 //Ruta de la  vista principal
 router.get('/', function(req, res, next) {
   Fichas.find(function(err){
-      if (err) return next(err);
+      if (err) return next(err, arrCajas);
       res.render('main', {
         title: 'Banco de la República Costarricense',
         cajas: 'Cajas',
         plataforma: 'Plataforma',
         credito: 'Crédito',
         Marchamo: 'Marchamo',
-        Discapacidad: 'Personas con Discapacidad'
+        Discapacidad: 'Personas con Discapacidad',
+        arrCajas: arrCajas
       });
     });
 });
@@ -30,9 +33,16 @@ router.post('/getTicket', function(req, res) {
       currentTicket,
       typeOfTicket = req.body.ticket;
   //sumar la ficha
-      currentTicket = countTicketsClients + 1;
+    if (typeOfTicket == "Cajas") {
+      arrCajas.push(1);
+    }
+    for (var i = 0; i < arrCajas.length; i++) {
+    countTicketsClients += arrCajas[i];
+  }
+
   console.log('SELECCIONADO PARA FICHA ' , typeOfTicket);
   console.log('nueva ficha ', countTicketsClients);
+  console.log('ARREGLO ', arrCajas);
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
