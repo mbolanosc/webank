@@ -41,7 +41,7 @@ router.post('/getTicket', function(req, res) {
   }
 
   console.log('SELECCIONADO PARA FICHA ' , typeOfTicket);
-  console.log('nueva ficha ', countTicketsClients);
+  console.log('nueva ficha ', letterForTicketClients+countTicketsClients);
   console.log('ARREGLO ', arrCajas);
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
