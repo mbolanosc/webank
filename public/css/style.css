@@ -29,8 +29,8 @@ header {
 
 .row   {
  margin: auto;
+ text-align: center;
 }
-
 
 .box {
   background-color: #3D9938;

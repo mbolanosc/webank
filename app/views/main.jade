@@ -26,25 +26,26 @@ block content
       div.item.active
         img(src="img/slide01.jpg" alt="" with="1500px")
         div.carousel-caption  
-          form( method="post", id="getYourTicket")
+          form( method="post", id="getYourTicket", action="/getTicket")
             div.row
-              a.box.col-md-4( href="/getTicket")
+            
+              button.box(href="/getTicket")
                 h3.text-box Cajas
                 i.fa.fa-angle-down.fa-5x(aria-hidden="true")
                 
-              a.box.col-md-4( href="#")
+              button.box( href="#")
                 h3.text-box Plataforma
                 i.fa.fa-angle-down.fa-5x(aria-hidden="true")
               
-              a.box.col-md-4( href="#")
+              button.box( href="#")
                 h3.text-box Crédito
                 i.fa.fa-angle-down.fa-5x(aria-hidden="true")
             
             div.row
-              a.box.col-md-3( href="#")
+              button.box( href="#")
                 h3.text-box Marchamo
                 i.fa.fa-angle-down.fa-5x(aria-hidden="true")
              
-              a.box.col-md-3( href="#")
+              button.box( href="#")
                 h3.lText-box Personas con Discapacidad
                 i.fa.fa-angle-down.fa-5x(aria-hidden="true")
