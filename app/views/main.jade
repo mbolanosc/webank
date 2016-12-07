@@ -28,10 +28,10 @@ block content
         div.carousel-caption  
           form( method="post", id="getYourTicket", action="/getTicket")
             div.row
-              select.form-control
-                option(value="Cajas", name="cajas") Cajas
-                option(value="Plataforma", name="plataforma") Plataforma
-                option(value="Crédito", name="credito") Crédito
-                option(value="Marchamo", name="marchamo") Marchamo
-                option(value="Personas con Discapacidad", name="discapacidad") Personas con Discapacidad
-                input(type="submit", value="Guardar")
+              select.form-control(name="ticket", id="ticket")
+                option(value="1") Cajas
+                option(value="2") Plataforma
+                option(value="3") Crédito
+                option(value="4") Marchamo
+                option(value="5") Personas con Discapacidad
+              input(type="submit", value="Guardar")
