@@ -13,6 +13,11 @@ header {
 
 .navbar {
   background-color: #3D9938;
+  height: 80px;
+}
+
+.container-fluid {
+  margin-top: 20px;
 }
 
 .navbar-brand,
@@ -26,12 +31,16 @@ header {
       margin: auto;
       overflow: hidden;
   }
+  .carousel-caption {
+    top: 15em;
+  }
 
 .row   {
  margin: auto;
  text-align: center;
 }
 
-select {
-  background-color: transparent;
+input {
+  background-color: #3D9938;
+  border-color: #3D9938;
 }

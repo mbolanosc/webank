@@ -3,7 +3,12 @@ var express = require('express'),
     mongoose = require('mongoose'),
     //Llama el modelo
     Fichas = mongoose.model('bankMod'),
-    arrCajas = [];
+    arrCajas = [],
+    arrPlataforma = [],
+    arrCredito = [],
+    arrMarchamo = [],
+    arrDiscapacidad = [];
+
 
 
 module.exports = function(app) {
@@ -13,7 +18,7 @@ module.exports = function(app) {
 //Ruta de la  vista principal
 router.get('/', function(req, res, next) {
   Fichas.find(function(err){
-      if (err) return next(err, arrCajas);
+      if (err) return next(err, arrCajas, arrPlataforma, arrCredito, arrMarchamo, arrDiscapacidad);
       res.render('main', {
         title: 'Banco de la República Costarricense',
         cajas: 'Cajas',
@@ -21,7 +26,11 @@ router.get('/', function(req, res, next) {
         credito: 'Crédito',
         Marchamo: 'Marchamo',
         Discapacidad: 'Personas con Discapacidad',
-        arrCajas: arrCajas
+        arrCajas: arrCajas,
+        arrPlataforma: arrPlataforma,
+        arrCredito: arrCredito,
+        arrMarchamo: arrMarchamo,
+        arrDiscapacidad: arrDiscapacidad
       });
     });
 });
@@ -32,13 +41,35 @@ router.post('/getTicket', function(req, res) {
       countTicketsClients = 0,
       currentTicket,
       typeOfTicket = req.body.ticket;
+
   //sumar la ficha
     if (typeOfTicket == "Cajas") {
       arrCajas.push(1);
+    } else if (typeOfTicket == "Plataforma") {
+      arrPlataforma.push(1);
+    } else if (typeOfTicket == "Credito") {
+      arrCredito.push(1);
+    } else if (typeOfTicket == "Marchamo") {
+      arrMarchamo.push(1);
+    } else {
+      arrDiscapacidad.push(1);
     }
+
     for (var i = 0; i < arrCajas.length; i++) {
     countTicketsClients += arrCajas[i];
-  }
+    }
+    for (var i = 0; i < arrPlataforma.length; i++) {
+    countTicketsClients += arrPlataforma[i];
+    }
+    for (var i = 0; i < arrCredito.length; i++) {
+    countTicketsClients += arrCredito[i];
+    }
+    for (var i = 0; i < arrMarchamo.length; i++) {
+    countTicketsClients += arrMarchamo[i];
+    }
+    for (var i = 0; i < arrDiscapacidad.length; i++) {
+    countTicketsClients += arrDiscapacidad[i];
+    }
 
   console.log('SELECCIONADO PARA FICHA ' , typeOfTicket);
   console.log('nueva ficha ', letterForTicketClients+countTicketsClients);
@@ -50,15 +81,9 @@ router.post('/getTicket', function(req, res) {
     });
   console.log('new ticket  ', newTicket); //nuevo tiquete
   newTicket.save(function (err) {
-  if (err){
-    return handleError(err);
-  }
-  console.log('ya guardo el nuevo tiquete!');
-})
-
-
-
-
-
-  res.redirect('/');
+    if (err){
+      return handleError(err);
+    }
+    console.log('ya guardo el nuevo tiquete!');
+  })
 });

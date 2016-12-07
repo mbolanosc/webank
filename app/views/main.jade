@@ -33,5 +33,13 @@ block content
                 option(value="Plataforma") Plataforma
                 option(value="Credito") Crédito
                 option(value="Marchamo") Marchamo
-                option(value="Personas Discapacitadas") Personas con Discapacidad
-              input(type="submit", value="Guardar")
+                option(value="Discapacidad") Personas con Discapacidad
+              input(type="submit", value="Guardar" data-toggle="modal" data-target="#ticketModal")
+              
+          div.modal.fade(id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+            div.modal-dialog.modal-sm(role="document")
+              div.modal-content          
+                div.modal-body
+                  p alksd
+                div.modal-footer
+                  button(type="button" class="btn btn-default" data-dismiss="modal") Close
