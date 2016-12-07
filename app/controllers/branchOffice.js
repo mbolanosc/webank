@@ -25,9 +25,24 @@ router.get('/', function(req, res, next) {
 
 //Ruta de para obtener cupon
 router.post('/getTicket', function(req, res) {
-  console.log('FUNCION PARA OBTENER TIQUETE');
-  var typeOfTicket = req.body.cajas;
-  console.log('SELECCIONADO PARA FICHA ' , );
+  var letterForTicketClients = "C",
+  var countTicketsClients = "001",
+  var typeOfTicket = req.body.ticket;
+  console.log('SELECCIONADO PARA FICHA ' , typeOfTicket);
+  var newTicket = new Fichas({
+    nombreDeCaja: typeOfTicket,
+    atendido: false,
+    tiempoPorVentana: ""
+    });
+  console.log('new ticket  ', newTicket); //nuevo tiquete
+  newTicket.save(function (err) {
+  if (err){
+    return handleError(err);
+  }
+  console.log('ya guardo el nuevo tiquete!');
+})
+
+
 
 
 
