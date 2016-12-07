@@ -32,25 +32,6 @@ header {
  text-align: center;
 }
 
-.box {
-  background-color: white;
-  color: black;
-  height: 180px;
-  max-width: 180px;
-  margin-left: 20px;
-  border-radius: 200px;
-  margin-top: 50px;
-}
-
-.bcj > h3{
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
-.text-box {
-  margin-top: 70px;
-}
-
-.lText-box {
-  margin-top: 40px;
+.select {
+  
 }

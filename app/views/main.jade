@@ -28,23 +28,9 @@ block content
         div.carousel-caption  
           form( method="post", id="getYourTicket", action="/getTicket")
             div.row
-              button.box.bcj(id="cajas")
-                h3.text-box Cajas
-                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-                
-              button.box.bp
-                h3.text-box Plataforma
-                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-              
-              button.box.bcd
-                h3.text-box Crédito
-                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-            
-            div.row
-              button.box.bm
-                h3.text-box Marchamo
-                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-             
-              button.box
-                h3.lText-box Personas con Discapacidad
-                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+              select.form-control
+                option(value="Cajas", name="cajas") Cajas
+                option(value="Plataforma", name="plataforma") Plataforma
+                option(value="Crédito", name="credito") Crédito
+                option(value="Marchamo", name="marchamo") Marchamo
+                option(value="Personas con Discapacidad", name="discapacidad") Personas con Discapacidad
