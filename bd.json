@@ -1,0 +1,7 @@
+/* 1 */
+{
+    "_id" : ObjectId("58475149d2a5134b4d08684c"),
+    "nombreDeCaja" : "",
+    "atendido" : false,
+    "tiempoPorVentana" : ""
+}
