@@ -18,25 +18,33 @@ block content
             li: a.f-nav( href="#") Servicios
     
 
-  div.container
-    
-    div.row
-      a.box.col-md-3( href="#")
-        h3.text-box Cajas
-        i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-        
-      a.box.col-md-3( href="#")
-        h3.text-box Plataforma
-        i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+  div#carousel.slide.carousel(data-ride="carousel")
+    ol.carousel-indicators
+      li.active(data-target="#carousel" data-slide-to="0")
       
-      a.box.col-md-3( href="#")
-        h3.text-box Crédito
-        i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-    
-      a.box.col-md-3( href="#")
-        h3.text-box Marchamo
-        i.fa.fa-angle-down.fa-5x(aria-hidden="true")
-     
-      a.box.col-md-3( href="#")
-        h3.lText-box Personas con Discapacidad
-        i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+    div.carousel-inner(role="listbox")
+      div.item.active
+        img(src="img/slide01.jpg" alt="" with="1500px")
+        div.carousel-caption  
+          form( method="post", id="getYourTicket")
+            div.row
+              a.box.col-md-4( href="#")
+                h3.text-box Cajas
+                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+                
+              a.box.col-md-4( href="#")
+                h3.text-box Plataforma
+                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+              
+              a.box.col-md-4( href="#")
+                h3.text-box Crédito
+                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+            
+            div.row
+              a.box.col-md-3( href="#")
+                h3.text-box Marchamo
+                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
+             
+              a.box.col-md-3( href="#")
+                h3.lText-box Personas con Discapacidad
+                i.fa.fa-angle-down.fa-5x(aria-hidden="true")
