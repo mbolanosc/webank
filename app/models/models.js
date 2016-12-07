@@ -1,15 +1,10 @@
 var mongoose = require('mongoose'),
 		Schema = mongoose.Schema; //Interactuar con la bd
-var Elecciones = new Schema({
-	nombre: String,
-	puntos: Number,
-	trump: Number,
-	hillary: Number,
-  ganador: String,
-	total: Number,
-  ganadorH: Boolean,
-  ganadorT: Boolean
+var Fichas = new Schema({
+    nombreDeCaja : String,
+    atendido : Boolean,
+    tiempoPorVentana : String
 
-}, {collection: 'Estados'}); //llamar la tabla de la bd
+}, {collection: 'FichasCollection'}); //llamar la tabla de la bd
 
-mongoose.model('EstadosMod', Elecciones); //Exporta la coleccion.
+mongoose.model('bankMod', Fichas); //Exporta la coleccion.

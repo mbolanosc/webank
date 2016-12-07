@@ -2,7 +2,7 @@ var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
     //Llama el modelo
-    Elecciones = mongoose.model('EstadosMod');
+    Fichas = mongoose.model('bankMod');
 
 module.exports = function(app) {
   app.use('/', router);
@@ -11,7 +11,7 @@ module.exports = function(app) {
 //Ruta de la primera vista
 router.get('/main', function(req, res, next) {
 
-  Elecciones.find(function(err, estados) //Busca el modelo dentro del MVC
+  Fichas.find(function(err) //Busca el modelo dentro del MVC
     {
       if (err) return next(err);
       res.render('main', {
@@ -20,8 +20,7 @@ router.get('/main', function(req, res, next) {
         plataforma: 'Plataforma',
         credito: 'Crédito',
         Marchamo: 'Marchamo',
-        Discapacidad: 'Personas con Discapacidad',
-        elecciones: estados,
+        Discapacidad: 'Personas con Discapacidad'
       });
     });
 });
