@@ -11,10 +11,17 @@ block content
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="#") Banco de la República Costarricense
+          a.navbar-brand(href="/") Banco de la República Costarricense
         #nav1.collapse.navbar-collapse
           ul.nav.navbar-nav.pull-right
-            li.active: a.f-nav( href="/") Ver fichas cliente
+            li.active: a.f-nav.dropdown-toggle( href="/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Ver fichas cliente
+              span.caret
+              ul.dropdown-menu
+                li: a(href="#") Lista de Cajas
+                li: a(href="#") Lista de Plataforma
+                li: a(href="#") Lista de Crédito
+                li: a(href="#") Lista de Marchamo
+                li: a(href="#") Lista de Personas con Discapacidad
             li: a.f-nav( href="/service") Servicios
     
 
