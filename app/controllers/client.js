@@ -14,11 +14,12 @@ var express = require('express'),
 module.exports = function(app) {
   app.use('/', router);
 };
-//Ruta del servicio
-router.get('/service', function(req, res, next) {
+
+//Ruta de la  vista principal
+router.get('/', function(req, res, next) {
   Fichas.find(function(err){
       if (err) return next(err, arrCajas, arrPlataforma, arrCredito, arrMarchamo, arrDiscapacidad);
-      res.render('service', {
+      res.render('client', {
         title: 'Banco de la República Costarricense',
         cajas: 'Cajas',
         plataforma: 'Plataforma',
@@ -34,21 +35,62 @@ router.get('/service', function(req, res, next) {
     });
 });
 
-//Ruta de la  vista principal
-router.get('/', function(req, res, next) {
+// Rutas del dropdown
+// Ruta de cajas
+router.get('/clientBoxList', function(req, res, next) {
   Fichas.find(function(err){
-      if (err) return next(err, arrCajas, arrPlataforma, arrCredito, arrMarchamo, arrDiscapacidad);
-      res.render('main', {
+      if (err) return next(err, arrCajas);
+      res.render('clientBox', {
         title: 'Banco de la República Costarricense',
         cajas: 'Cajas',
+        arrCajas: arrCajas
+      });
+    });
+});
+
+// Ruta de plataforma
+router.get('/clientPlatformList', function(req, res, next) {
+  Fichas.find(function(err){
+      if (err) return next(err, arrCajas);
+      res.render('clientPlatform', {
+        title: 'Banco de la República Costarricense',
         plataforma: 'Plataforma',
+        arrPlataforma: arrPlataforma
+      });
+    });
+});
+
+// Ruta de Credito
+router.get('/clientCreditList', function(req, res, next) {
+  Fichas.find(function(err){
+      if (err) return next(err, arrCajas);
+      res.render('clientCredit', {
+        title: 'Banco de la República Costarricense',
         credito: 'Crédito',
+        arrCredito: arrCredito
+      });
+    });
+});
+
+// Ruta de Marchamo
+router.get('/clientMarchamoList', function(req, res, next) {
+  Fichas.find(function(err){
+      if (err) return next(err, arrCajas);
+      res.render('clientMarchamo', {
+        title: 'Banco de la República Costarricense',
         Marchamo: 'Marchamo',
+        arrMarchamo: arrMarchamo
+      });
+    });
+});
+
+// Ruta de Personas con discapacidad
+router.get('/clientDisabledPeopleList', function(req, res, next) {
+  Fichas.find(function(err){
+      if (err) return next(err, arrCajas);
+      res.render('clientDisabledPeople', {
+        title: 'Banco de la República Costarricense',
         Discapacidad: 'Personas con Discapacidad',
-        arrCajas: arrCajas,
-        arrPlataforma: arrPlataforma,
-        arrCredito: arrCredito,
-        arrMarchamo: arrMarchamo,
         arrDiscapacidad: arrDiscapacidad
       });
     });

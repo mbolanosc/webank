@@ -28,11 +28,15 @@ block content
         div.carousel-caption  
           form( method="post", id="showList", action="/showList")
             div.row
-              select.form-control(name="ticket", id="ticket")
-                option(value="Cajas") Cajas
-                option(value="Plataforma") Plataforma
-                option(value="Credito") Crédito
-                option(value="Marchamo") Marchamo
-                option(value="Discapacidad") Personas con Discapacidad
-              input(type="submit", value="Mostrar")
+              div.dropdown
+                button.btn.btn-success.dropdownList.dropdown-toggle(type="button" data-toggle="dropdown") Lista
+                  span.caret
+                ul.dropdown-menu.dropdown-service
+                  li: a(href="serviceBoxList") Lista de Cajas
+                  li: a(href="servicePlatformList") Lista de Plataforma
+                  li: a(href="serviceCreditList") Lista de Crédito
+                  li: a(href="serviceMarchamoList") Lista de Marchamo
+                  li: a(href="serviceDisabledPeopleList") Lista de Personas con Discapacidad
+                  
+
               

@@ -48,3 +48,11 @@ input {
 .modal-backdrop{
   z-index: -90 !important;
 }
+
+.dropdownList {
+  padding: 10px 400px !important;
+}
+
+.dropdown-service {
+  margin-left: 300px !important;
+}
