@@ -44,3 +44,7 @@ input {
   background-color: #3D9938;
   border-color: #3D9938;
 }
+
+.modal-backdrop{
+  z-index: -90 !important;
+}

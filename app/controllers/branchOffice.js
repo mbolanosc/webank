@@ -86,4 +86,13 @@ router.post('/getTicket', function(req, res) {
     }
     console.log('ya guardo el nuevo tiquete!');
   })
+  //function para reireccionar la pagina despues de cierto tiempo
+  function redirectTime() {
+    setTimeout(function(){
+      console.log("SET TIME OUT Para rideccionar ");
+      res.redirect('/');
+    }, 5000);
+  }
+  redirectTime();
+
 });
