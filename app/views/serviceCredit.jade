@@ -17,9 +17,13 @@ block content
             li.active: a.f-nav.dropdown-toggle( href="/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Lista de Clientes
               span.caret
               ul.dropdown-menu
-                li: a(href="#") Lista de Cajas
-                li: a(href="#") Lista de Plataforma
-                li: a(href="#") Lista de Crédito
-                li: a(href="#") Lista de Marchamo
-                li: a(href="#") Lista de Personas con Discapacidad
+                li: a(href="serviceBoxList") Lista de Cajas
+                li: a(href="servicePlatformList") Lista de Plataforma
+                li: a(href="serviceCreditList") Lista de Crédito
+                li: a(href="serviceMarchamoList") Lista de Marchamo
+                li: a(href="serviceDisabledPeopleList") Lista de Personas con Discapacidad
             li: a.f-nav( href="/service") Servicios
+
+    div.container
+      div.row
+        h1 Crédito
