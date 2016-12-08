@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
         arrCredito: arrCredito,
         arrMarchamo: arrMarchamo,
         arrDiscapacidad: arrDiscapacidad,
-        newTicketClientes : newTicketClientes
+        newTicketClientes : newTicketClientes,
       });
     });
 });
@@ -98,15 +98,16 @@ router.post('/getTicket', function(req, res) {
 });
 
 
-// Rutas del dropdown
 // Ruta de cajas
 router.get('/clientBoxList', function(req, res, next) {
-  Fichas.find(function(err){
+  Fichas.find(function(err,fichas){
       if (err) return next(err, arrCajas);
       res.render('clientBox', {
         title: 'Banco de la República Costarricense',
         cajas: 'Cajas',
-        arrCajas: arrCajas
+        arrCajas: arrCajas,
+        // all tickets
+        fichas:fichas,
       });
     });
 });

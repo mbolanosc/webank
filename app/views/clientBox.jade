@@ -27,3 +27,8 @@ block content
     div.container
       div.row
         h1 Cajas
+          div.listOfTickets
+          -for (var i=0; i< fichas.length;i++){
+            p #{fichas[i]._id}
+          -}
+      
