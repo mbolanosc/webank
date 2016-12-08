@@ -64,3 +64,8 @@ input {
   text-decoration: underline;;
   text-shadow: none;
 }
+
+/*clients list view*/
+.table-clients > th{
+  text-align: center;
+}

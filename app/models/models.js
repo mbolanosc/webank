@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 var Fichas = new Schema({
     nombreDeCaja : String,
     atendido : Boolean,
-    tiempoPorVentana : String
+    tiempoPorVentana : String,
+		ticket:String
 
 }, {collection: 'FichasCollection'}); //llamar la tabla de la bd
 

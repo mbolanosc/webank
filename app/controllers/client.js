@@ -77,7 +77,8 @@ router.post('/getTicket', function(req, res) {
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
-    tiempoPorVentana: ""
+    tiempoPorVentana: "",
+    ticket:newTicketClientes
   });
   console.log('new ticket  ', newTicket); //nuevo tiquete
   newTicket.save(function (err) {
