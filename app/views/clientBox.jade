@@ -28,23 +28,24 @@ block content
       div.row
         h1 Cajas
         div.listOfTickets
+        - var idForRoute = ""
         -for (var i=0; i< fichas.length;i++){
+          -var idForRoute = fichas[i]._id;
           table.table.table-bordered
             tr.table-clients
               th Id de tiquete
               th Tiquete
               th Tipo de tiquete
-              th Atendido 
-              th 
+              th Atendido  
             tr
               td #{fichas[i]._id}
               td #{fichas[i].ticket}
               td #{fichas[i].nombreDeCaja}
               td #{fichas[i].atendido}
-              td 
-                form(id="changeAttendState", method="post", action="/clientBoxList/#{fichas[i]._id}")
-                  input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender",data-toggle="modal" data-target="#attendModalClients")
         -}
+        
+        
+                   
         
         
       

@@ -119,9 +119,9 @@ router.post('/clientBoxList/:id',function (req,res){
   console.log('routeId ', routeId);
   //find by id so that way i can edit the state
 
-  Fichas.findById(routeId , function(err,docs){
+  /*Fichas.findById(routeId , function(err,docs){
     if(err){
-      throw wrr;
+      throw err;
     }
     docs.atendido = true;
     if(docs.atendido === true){
@@ -137,7 +137,7 @@ router.post('/clientBoxList/:id',function (req,res){
     });
   })
   //change the attend state from false to true
-  res.redirect('/clientBoxList');
+  res.redirect('/clientBoxList');*/
 })
 
 
