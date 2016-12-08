@@ -14,6 +14,25 @@ var express = require('express'),
 module.exports = function(app) {
   app.use('/', router);
 };
+//Ruta del servicio
+router.get('/service', function(req, res, next) {
+  Fichas.find(function(err){
+      if (err) return next(err, arrCajas, arrPlataforma, arrCredito, arrMarchamo, arrDiscapacidad);
+      res.render('service', {
+        title: 'Banco de la República Costarricense',
+        cajas: 'Cajas',
+        plataforma: 'Plataforma',
+        credito: 'Crédito',
+        Marchamo: 'Marchamo',
+        Discapacidad: 'Personas con Discapacidad',
+        arrCajas: arrCajas,
+        arrPlataforma: arrPlataforma,
+        arrCredito: arrCredito,
+        arrMarchamo: arrMarchamo,
+        arrDiscapacidad: arrDiscapacidad
+      });
+    });
+});
 
 //Ruta de la  vista principal
 router.get('/', function(req, res, next) {
