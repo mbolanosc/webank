@@ -75,9 +75,11 @@ router.post('/getTicket', function(req, res) {
   for (var i = 0; i < arrDiscapacidad.length; i++) {
     countTicketsClients += arrDiscapacidad[i];
   }
-
   newTicketClientes = letterForTicketClients+countTicketsClients;
   console.log('nueva fichaaa', newTicketClientes);
+  function dateTime(document) {
+    document.getElementById("ticketModal").innerHTML = Date();
+  }
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
