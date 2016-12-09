@@ -16,6 +16,7 @@ block content
           ul.nav.navbar-nav.pull-right
             li: a.f-nav( href="/") Cliente
             li.active: a.f-nav( href="/service") Servicios
+            li.active: a.f-nav( href="/reports") Reportes
     
 
   div#carousel.slide.carousel(data-ride="carousel")
@@ -26,17 +27,17 @@ block content
       div.item.active
         img(src="img/slide03.jpg" alt="" with="1500px")
         div.carousel-caption  
-          form( method="post", id="showList", action="/showList")
+          form( method="post", id="showList", action="/showList")              
             div.row
               div.dropdown
-                button.btn.btn-success.dropdownList.dropdown-toggle(type="button" data-toggle="dropdown") Lista
+                button.btn.btn-default.dropdownList.dropdown-toggle(type="button" data-toggle="dropdown") Lista
                   span.caret
                 ul.dropdown-menu.dropdown-service
-                  li: a(href="serviceBoxList") Lista de Cajas
-                  li: a(href="servicePlatformList") Lista de Plataforma
-                  li: a(href="serviceCreditList") Lista de Crédito
-                  li: a(href="serviceMarchamoList") Lista de Marchamo
-                  li: a(href="serviceDisabledPeopleList") Lista de Personas con Discapacidad
+                  li: a(href="serviceBoxList" type="submit") Lista de Cajas
+                  li: a(href="servicePlatformList" type="submit") Lista de Plataforma
+                  li: a(href="serviceCreditList" type="submit") Lista de Crédito
+                  li: a(href="serviceMarchamoList" type="submit") Lista de Marchamo
+                  li: a(href="serviceDisabledPeopleList" type="submit") Lista de Personas con Discapacidad
                   
 
               

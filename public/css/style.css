@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+a, p {
   color: black;
 }
 
@@ -54,7 +54,8 @@ input {
 }
 
 .dropdown-service {
-  margin-left: 300px !important;
+  margin-left: 26px !important;
+  width: 840px;
 }
 
 /*ticket*/
@@ -68,4 +69,8 @@ input {
 /*clients list view*/
 .table-clients > th{
   text-align: center;
+}
+
+.date {
+    width: 890px;
 }

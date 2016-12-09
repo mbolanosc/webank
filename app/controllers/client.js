@@ -7,8 +7,9 @@ var express = require('express'),
     arrPlataforma = [],
     arrCredito = [],
     arrMarchamo = [],
-    arrDiscapacidad = []
-    newTicketClientes="";
+    arrDiscapacidad = [],
+    newTicketClientes="",
+    dateTime = Date();
 
 
 
@@ -33,6 +34,7 @@ router.get('/', function(req, res, next) {
         arrMarchamo: arrMarchamo,
         arrDiscapacidad: arrDiscapacidad,
         newTicketClientes : newTicketClientes,
+        dateTime:dateTime
       });
     });
 });
@@ -42,6 +44,7 @@ router.post('/getTicket', function(req, res) {
   var letterForTicketClients = "C",
   countTicketsClients = 0,
   currentTicket,
+  dateTime = Date();
   typeOfTicket = req.body.ticket;
 
   //sumar la ficha
@@ -72,12 +75,15 @@ router.post('/getTicket', function(req, res) {
   for (var i = 0; i < arrDiscapacidad.length; i++) {
     countTicketsClients += arrDiscapacidad[i];
   }
-  newTicketClientes = letterForTicketClients+countTicketsClients
+
+  newTicketClientes = letterForTicketClients+countTicketsClients;
   console.log('nueva fichaaa', newTicketClientes);
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
     tiempoPorVentana: "",
+    numberTicket: countTicketsClients,
+    date: dateTime,
     ticket:newTicketClientes
   });
   console.log('new ticket  ', newTicket); //nuevo tiquete
@@ -92,7 +98,7 @@ router.post('/getTicket', function(req, res) {
     setTimeout(function(){
       console.log("SET TIME OUT Para rideccionar ");
       res.redirect('/');
-    }, 5000);
+    }, 2000);
   }
   redirectTime();
 

@@ -4,7 +4,9 @@ var Fichas = new Schema({
     nombreDeCaja : String,
     atendido : Boolean,
     tiempoPorVentana : String,
-		ticket:String
+		numberTicket: Number,
+		ticket:String,
+		dateTime: Date
 
 }, {collection: 'FichasCollection'}); //llamar la tabla de la bd
 

@@ -33,6 +33,16 @@ var express = require('express'),
         });
     });
 
+    // Ruta de reportes
+    router.get('/reports', function(req, res, next) {
+      Fichas.find(function(err){
+          if (err) return next(err);
+          res.render('report', {
+            title: 'Banco de la República Costarricense'
+          });
+        });
+    });
+
     // Ruta de cajas
     router.get('/serviceBoxList', function(req, res, next) {
       Fichas.find(function(err){
