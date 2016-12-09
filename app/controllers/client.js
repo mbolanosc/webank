@@ -9,7 +9,7 @@ var express = require('express'),
     arrMarchamo = [],
     arrDiscapacidad = [],
     newTicketClientes="",
-    dateTime = Date();
+    dateTime = new Date();
 
 
 
@@ -44,7 +44,6 @@ router.post('/getTicket', function(req, res) {
   var letterForTicketClients = "C",
   countTicketsClients = 0,
   currentTicket,
-  dateTime = Date();
   typeOfTicket = req.body.ticket;
 
   //sumar la ficha
@@ -77,9 +76,7 @@ router.post('/getTicket', function(req, res) {
   }
   newTicketClientes = letterForTicketClients+countTicketsClients;
   console.log('nueva fichaaa', newTicketClientes);
-  function dateTime(document) {
-    document.getElementById("ticketModal").innerHTML = Date();
-  }
+  console.log('fecha', newTicketClientes);
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
