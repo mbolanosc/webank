@@ -28,9 +28,12 @@ block content
       div.row
         h1 Cajas
         div.listOfTickets
-        - var idForRoute = ""
+        - var attend = ""
         -for (var i=0; i< fichas.length;i++){
-          -var idForRoute = fichas[i]._id;
+          if fichas[i].atendido == false
+            -var attend="No"
+          else
+            -var attend="Si"
           table.table.table-bordered
             tr.table-clients
               th Id de tiquete
@@ -41,7 +44,8 @@ block content
               td #{fichas[i]._id}
               td #{fichas[i].ticket}
               td #{fichas[i].nombreDeCaja}
-              td #{fichas[i].atendido}
+              td=attend
+              
         -}
         
         
