@@ -9,8 +9,16 @@ var express = require('express'),
     arrMarchamo = [],
     arrDiscapacidad = [],
     newTicketClientes="",
+    //database thing
     dateTime = new Date();
+    //interfaz thing
+    var days = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
 
+    var day = days[ dateTime.getDay() ];
+    var month = months[ dateTime.getMonth() ];
+    var dayNumber = dateTime.getDate();
+    var dayYear = dateTime.getFullYear();
 
 
 module.exports = function(app) {
@@ -34,7 +42,11 @@ router.get('/', function(req, res, next) {
         arrMarchamo: arrMarchamo,
         arrDiscapacidad: arrDiscapacidad,
         newTicketClientes : newTicketClientes,
-        dateTime:dateTime
+        day:day,
+        month:month,
+        dayNumber:dayNumber,
+        dayYear: dayYear
+
       });
     });
 });
