@@ -55,33 +55,36 @@ var express = require('express'),
           });
         });
     });
-    //Ruta de cajas pero con el cronometro. (PRUEBA)
-    router.post('/serviceBoxList/:id',function (req,res){
-      console.log('Aqui hago la progra del cronometro y la guardo en la base de datos con route params');
-      var routeId = req.params.id;
-      console.log('routeId ', routeId);
-      //find by id so that way i can edit the state
 
-      Fichas.findById(routeId , function(err,docs){
-        if(err){
+//Ruta de cajas pero con el cronometro. (PRUEBA)
+router.post('/serviceBoxList/:id',function (req,res){
+  //stopwatch
+
+
+    var routeId = req.params.id;
+    console.log('routeId ', routeId);
+    //find by id so that way i can edit the state
+
+    Fichas.findById(routeId , function(err,docs){
+      if(err){
+        throw err;
+      }
+      docs.atendido = true;
+      if(docs.atendido === true){
+        console.log('ya es true ', docs.atendido);
+      }else{
+        console.log('no es true ', docs.atendido);
+      }
+      docs.save(function(err){
+        if (err) {
           throw err;
         }
-        docs.atendido = true;
-        if(docs.atendido === true){
-          console.log('ya es true ', docs.atendido);
-        }else{
-          console.log('no es true ', docs.atendido);
-        }
-        docs.save(function(err){
-          if (err) {
-            throw err;
-          }
-          console.log('update wt success!');
-        });
-    });
-      //change the attend state from false to true
-      res.redirect('/serviceBoxList');
-    })
+        console.log('update wt success!');
+      });
+  });
+    //change the attend state from false to true
+    res.redirect('/serviceBoxList');
+});
 
 
     // Ruta de plataforma

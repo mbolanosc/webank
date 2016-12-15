@@ -26,28 +26,81 @@ block content
 
     div.container
       div.row
-        h1 Cajas
-        - var attend = ""
-        -for (var i=0; i< fichas.length;i++){
-          if fichas[i].atendido == false
-            -var attend="No"
-          else
-            -var attend="Si"
-          table.table.table-bordered
-            tr.table-clients
-              th Id de tiquete
-              th Tiquete
-              th Tipo de tiquete
-              th Atendido 
-              th Acción
-            tr
-              td #{fichas[i]._id}
-              td #{fichas[i].ticket}
-              td #{fichas[i].nombreDeCaja}
-              td=attend
-              td 
-                form(id="changeAttendState", method="post", action="/serviceBoxList/#{fichas[i]._id}")
-                  input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender",data-toggle="modal" data-target="#attendModalClients")
-        -}
+        div.col-md-8
+          h1 Cajas
+          - var attend = ""
+          -for (var i=0; i< fichas.length;i++){
+            if fichas[i].atendido == false
+              -var attend="No"
+            else
+              -var attend="Si"
+            table.table.table-bordered
+              tr.table-clients
+                th Id de tiquete
+                th Tiquete
+                th Tipo de tiquete
+                th Atendido 
+                th Acción
+              tr
+                td #{fichas[i]._id}
+                td #{fichas[i].ticket}
+                td #{fichas[i].nombreDeCaja}
+                td=attend
+                td 
+                  form(id="changeAttendState", method="post", action="/serviceBoxList/#{fichas[i]._id}")
+                    input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender")
+          -}
+        div.row
+          div.col-md-4
+            h1 Atender
+            div.panel.panel-default
+              div.panel-body
+                h1
+                  time 00:00:00
+                button.btn.btn-default(id="start") Empezar
+                button.btn.btn-default(id="stop") Terminar
+
+        
+        
+        script.
+          var h1 = document.getElementsByTagName('h1')[2];
+          var start = document.getElementById('start');
+          var stop = document.getElementById('stop');
+          var seconds = 0, minutes = 0, hours = 0;
+          var t;
+          
+          function add() {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                  minutes = 0;
+                  hours++;
+                }
+            }
+            h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+            timer();
+          }
+          function timer() {
+            t = setTimeout(add, 1000);
+          }
+          /* Start button */
+          start.onclick = timer;
+
+          /* Stop button */
+          stop.onclick = function() {
+              clearTimeout(t);
+          }
+          
+        
+      
+            
+            
+            
+            
+    
+        
         
             
