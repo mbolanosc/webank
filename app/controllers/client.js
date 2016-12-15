@@ -53,51 +53,57 @@ router.get('/', function(req, res, next) {
 //Ruta de para obtener cupon
 router.post('/getTicket', function(req, res) {
   var letterForTicketClients = "",
-  countTicketsClients = 0,
-  currentTicket,
+  countTicketsCajas = 0,
+  countTicketsPlataforma = 0,
+  countTicketsCredito = 0,
+  countTicketsMarchamo = 0,
+  countTicketsDescapacidad = 0,
   typeOfTicket = req.body.ticket;
 
   //sumar la ficha
   if (typeOfTicket == "Cajas") {
     arrCajas.push(1);
     letterForTicketClients = "C";
+    for (var i = 0; i < arrCajas.length; i++) {
+      countTicketsCajas += arrCajas[i];
+    }
+    newTicketClientes = letterForTicketClients + countTicketsCajas;
   } else if (typeOfTicket == "Plataforma") {
     arrPlataforma.push(1);
     letterForTicketClients = "P";
+    for (var i = 0; i < arrPlataforma.length; i++) {
+      countTicketsPlataforma += arrPlataforma[i];
+    }
+    newTicketClientes = letterForTicketClients + countTicketsPlataforma;
   } else if (typeOfTicket == "Credito") {
     arrCredito.push(1);
     letterForTicketClients = "R";
+    for (var i = 0; i < arrCredito.length; i++) {
+      countTicketsCredito += arrCredito[i];
+    }
+    newTicketClientes = letterForTicketClients + countTicketsCredito;
   } else if (typeOfTicket == "Marchamo") {
     arrMarchamo.push(1);
     letterForTicketClients = "M";
+    for (var i = 0; i < arrMarchamo.length; i++) {
+      countTicketsMarchamo += arrMarchamo[i];
+    }
+    newTicketClientes = letterForTicketClients + countTicketsMarchamo;
   } else {
     arrDiscapacidad.push(1);
     letterForTicketClients = "D";
+    for (var i = 0; i < arrDiscapacidad.length; i++) {
+      countTicketsDescapacidad += arrDiscapacidad[i];
+    }
+    newTicketClientes = letterForTicketClients + countTicketsDescapacidad;
   }
 
-  for (var i = 0; i < arrCajas.length; i++) {
-    countTicketsClients += arrCajas[i];
-  }
-  for (var i = 0; i < arrPlataforma.length; i++) {
-    countTicketsClients += arrPlataforma[i];
-  }
-  for (var i = 0; i < arrCredito.length; i++) {
-    countTicketsClients += arrCredito[i];
-  }
-  for (var i = 0; i < arrMarchamo.length; i++) {
-    countTicketsClients += arrMarchamo[i];
-  }
-  for (var i = 0; i < arrDiscapacidad.length; i++) {
-    countTicketsClients += arrDiscapacidad[i];
-  }
-  newTicketClientes = letterForTicketClients+countTicketsClients;
   console.log('nueva fichaaa', newTicketClientes);
   console.log('fecha', dateTime);
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
     tiempoPorVentana: "",
-    numberTicket: countTicketsClients,
     date: dateTime,
     ticket:newTicketClientes
   });
@@ -108,6 +114,7 @@ router.post('/getTicket', function(req, res) {
     }
     console.log('ya guardo el nuevo tiquete!');
   })
+
   //function para reireccionar la pagina despues de cierto tiempo
   function redirectTime() {
     setTimeout(function(){
@@ -129,12 +136,17 @@ router.get('/clientBoxList', function(req, res, next) {
         arrCajas: arrCajas,
         // all tickets
         fichas:fichas
-
       });
     });
 });
 
-
+router.post('/clientBoxList/:id',function (req,res){
+  function others() {
+    if (typeOfTicket != "Cajas") {
+      var hideC = document.getElementById("others").style.display = 'hidden';
+    }
+  }
+})
 
 
 // Ruta de plataforma
