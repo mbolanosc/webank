@@ -21,6 +21,7 @@
     "mongoose": "^4.1.2",
     "morgan": "^1.6.1",
     "node-stopwatch": "0.0.1",
+    "pdfkit": "^0.8.0",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
