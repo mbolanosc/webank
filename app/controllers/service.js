@@ -38,7 +38,8 @@ var express = require('express'),
       Fichas.find(function(err){
           if (err) return next(err);
           res.render('report', {
-            title: 'Banco de la República Costarricense'
+            title: 'Banco de la República Costarricense',
+            newTicketClientes: newTicketClientes
           });
         });
     });
@@ -106,6 +107,37 @@ var express = require('express'),
           });
         });
     });
+<<<<<<< HEAD
+=======
+    //Ruta de cajas pero con el cronometro. (PRUEBA)
+    router.post('/serviceBoxList/:id',function (req,res){
+      console.log('Aqui hago la progra del cronometro y la guardo en la base de datos con route params');
+      var routeId = req.params.id;
+      console.log('routeId ', routeId);
+      //find by id so that way i can edit the state
+
+    //   Fichas.findById(routeId , function(err,docs){
+    //     if(err){
+    //       throw err;
+    //     }
+    //     docs.atendido = true;
+    //     if(docs.atendido === true){
+    //       console.log('ya es true ', docs.atendido);
+    //     }else{
+    //       console.log('no es true ', docs.atendido);
+    //     }
+    //     docs.save(function(err){
+    //       if (err) {
+    //         throw err;
+    //       }
+    //       console.log('update wt success!');
+    //     });
+    // });
+
+      //change the attend state from false to true
+      res.redirect('/serviceBoxList');
+    })
+>>>>>>> 743ff4b2256a00d438c860ffa6dd5fa93af420e4
 
     // Ruta de plataforma
     router.get('/servicePlatformList', function(req, res, next) {

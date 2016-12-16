@@ -41,13 +41,5 @@ block content
                 option(value="Credito") Crédito
                 option(value="Marchamo") Marchamo
                 option(value="Discapacidad") Personas con Discapacidad
-              input(type="submit", value="Obtener" data-toggle="modal" data-target="#ticketModal" onClick="other()")
-              
-          div.modal.fade(id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
-            div.modal-dialog.modal-sm(role="document")
-              div.modal-content
-                div.modal-header 
-                  p.dateDisplay #{day} #{dayNumber} de #{month} del  #{dayYear} 
-                div.modal-body
-                  p Su número de tickete es:
-                  p.ticketDisplay #{newTicketClientes}
+              input(type="submit", value="Obtener")
+                 

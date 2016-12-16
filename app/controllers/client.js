@@ -60,6 +60,9 @@ router.post('/getTicket', function(req, res) {
   countTicketsDescapacidad = 0,
   typeOfTicket = req.body.ticket;
 
+
+  console.log("Antes arr" + arrCajas);
+
   //sumar la ficha
   if (typeOfTicket == "Cajas") {
     arrCajas.push(1);
@@ -68,6 +71,7 @@ router.post('/getTicket', function(req, res) {
       countTicketsCajas += arrCajas[i];
     }
     newTicketClientes = letterForTicketClients + countTicketsCajas;
+    console.log("Despues arr" + arrCajas);
   } else if (typeOfTicket == "Plataforma") {
     arrPlataforma.push(1);
     letterForTicketClients = "P";
@@ -97,9 +101,9 @@ router.post('/getTicket', function(req, res) {
     }
     newTicketClientes = letterForTicketClients + countTicketsDescapacidad;
   }
-
-  console.log('nueva fichaaa', newTicketClientes);
+  console.log("Antes ticket" + newTicketClientes)
   console.log('fecha', dateTime);
+
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
@@ -107,22 +111,15 @@ router.post('/getTicket', function(req, res) {
     date: dateTime,
     ticket:newTicketClientes
   });
-  console.log('new ticket  ', newTicket); //nuevo tiquete
+  //console.log('new ticket  ', newTicket); //nuevo tiquete
   newTicket.save(function (err) {
     if (err){
       return handleError(err);
     }
     console.log('ya guardo el nuevo tiquete!');
   })
-
-  //function para reireccionar la pagina despues de cierto tiempo
-  function redirectTime() {
-    setTimeout(function(){
-      console.log("SET TIME OUT Para rideccionar ");
-      res.redirect('/');
-    }, 2000);
-  }
-  redirectTime();
+  console.log('nueva fichaaa', newTicketClientes);
+  res.send("Su número de tiquete es: " + "<br>" + newTicketClientes);
 
 });
 

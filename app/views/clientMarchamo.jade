@@ -27,3 +27,27 @@ block content
     div.container
       div.row
         h1 Marchamo
+        div.listOfTickets
+        - var attend = ""
+        - var hideTicket = false
+        -for (var i=0; i< fichas.length;i++){
+          if fichas[i].atendido == false
+            -var attend="No"
+          else
+            -var attend="Si"  
+
+          if fichas[i].nombreDeCaja != "Marchamo"
+            table#tablehi.none(class=fichas[i].nombreDeCaja != "Marchamo" ? "" : "in")            
+          else    
+            table.table.table-bordered
+              tr.table-clients
+                th Id de tiquete
+                th Tiquete
+                th Tipo de tiquete
+                th Atendido  
+              tr
+                td #{fichas[i]._id}
+                td #{fichas[i].ticket}
+                td #{fichas[i].nombreDeCaja}
+                td=attend
+          -}
