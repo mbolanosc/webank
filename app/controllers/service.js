@@ -60,27 +60,39 @@ var express = require('express'),
     //Ruta de cajas pero con el cronometro. (PRUEBA)
     router.post('/serviceBoxList/:id',function (req,res){
       var routeId = req.params.id;
+      var gettingDate = new Date();
+      var h = gettingDate.getHours();
+      function addZero(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+      var m = addZero(gettingDate.getMinutes());
       console.log('routeId ', routeId);
       //find by id so that way i can edit the state
       Fichas.findById(routeId , function(err,docs){
         if(err){
           throw err;
          }
+         //update info
          docs.atendido = true;
-        if(docs.atendido === true){
-           console.log('ya es true ', docs.atendido);
-         }else{
-           console.log('no es true ', docs.atendido);
-         }
+         docs.endTime = h;
+         docs.endMinuts = m;
+         //getting the strings number and parset into number
+         var numberStartTime = parseInt(docs.initialMinuts);
+         var numberEndTime = parseInt(docs.endMinuts);
+         var result = numberStartTime - numberEndTime;
+         docs.totalTime = result;
+
+
          docs.save(function(err){
            if (err) {
             throw err;
         }
-          console.log('update wt success!');
+          console.log('update with success!');
         });
     });
-
-      //change the attend state from false to true
       res.redirect('/serviceBoxList');
     })
 

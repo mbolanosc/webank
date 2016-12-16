@@ -29,11 +29,16 @@ block content
         div.col-md-12
           h1 Cajas
           - var attend = ""
+          - var attendHours = ""
           -for (var i=0; i< fichas.length;i++){
             if fichas[i].atendido == false
               -var attend="No"
             else
               -var attend="Si"
+            if fichas[i].endTime == ""
+              - var attendHours = "No se ha atendido aun"
+            else 
+              - var attendHours = fichas[i].endTime + ":" + fichas[i].endMinuts + " horas"
             table.table.table-bordered
               tr.table-clients
                 th Tiquete
@@ -50,9 +55,9 @@ block content
                 td 
                   form(id="changeAttendState", method="post", action="/serviceBoxList/#{fichas[i]._id}")
                     input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender")
-                td hora inicio
-                td hora final
-                td total    
+                td #{fichas[i].startTime}:#{fichas[i].initialMinuts}   horas
+                td=attendHours 
+                td #{fichas[i].totalTime} minutos
           -}
           
     

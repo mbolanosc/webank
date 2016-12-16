@@ -19,6 +19,15 @@ var express = require('express'),
     var month = months[ dateTime.getMonth() ];
     var dayNumber = dateTime.getDate();
     var dayYear = dateTime.getFullYear();
+    //time lapse
+    function addZero(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    }
+    var ticketInitialTime = dateTime.getHours();
+    var m = addZero(dateTime.getMinutes());
 
 
 module.exports = function(app) {
@@ -103,8 +112,11 @@ router.post('/getTicket', function(req, res) {
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
-    startTime: dateTime,
+    date: dateTime,
+    startTime: ticketInitialTime,
+    initialMinuts: m,
     endTime: "",
+    endMinuts: "",
     totalTime: "",
     ticket:newTicketClientes
   });
@@ -115,6 +127,7 @@ router.post('/getTicket', function(req, res) {
     console.log('ya guardo el nuevo tiquete!');
   })
   console.log('nueva fichaaa', newTicketClientes);
+  console.log('INITIAL HOUR', ticketInitialTime);
   //falta imprimir la fecha!
   res.send("Su número de tiquete es: " + "<br>" + newTicketClientes);
 

@@ -3,8 +3,11 @@ var mongoose = require('mongoose'),
 var Fichas = new Schema({
     nombreDeCaja : String,
     atendido : Boolean,
-		startTime: Date,
-		endTime: Date,
+		date: Date,
+		startTime: String,
+		initialMinuts: String,
+		endTime: String,
+		endMinuts:String,
 		totalTime: String,
 		ticket:String
 
