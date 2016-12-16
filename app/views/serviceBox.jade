@@ -53,11 +53,10 @@ block content
                   td #{fichas[i].nombreDeCaja}
                   td=attend
                   td 
-                    button.btn.btn-default(id="start") Empezar
+                    button.btn.btn-default(id="start", onclick="timer()") Empezar
                     form(id="changeAttendState", method="post", action="/serviceBoxList/#{fichas[i]._id}")
                       input.attendBtn(type="submit", name="idFicha", id="stop", value="Terminar")    
 
                   td 
-                    p
-                      time 00:00:00
+                    p 00:00:00
             -}
