@@ -61,7 +61,6 @@ router.post('/getTicket', function(req, res) {
   typeOfTicket = req.body.ticket;
 
 
-  console.log("Antes arr" + arrCajas);
 
   //sumar la ficha
   if (typeOfTicket == "Cajas") {
@@ -71,7 +70,6 @@ router.post('/getTicket', function(req, res) {
       countTicketsCajas += arrCajas[i];
     }
     newTicketClientes = letterForTicketClients + countTicketsCajas;
-    console.log("Despues arr" + arrCajas);
   } else if (typeOfTicket == "Plataforma") {
     arrPlataforma.push(1);
     letterForTicketClients = "P";
@@ -101,17 +99,15 @@ router.post('/getTicket', function(req, res) {
     }
     newTicketClientes = letterForTicketClients + countTicketsDescapacidad;
   }
-  console.log("Antes ticket" + newTicketClientes)
-  console.log('fecha', dateTime);
 
   var newTicket = new Fichas({
     nombreDeCaja: typeOfTicket,
     atendido: false,
-    tiempoPorVentana: "",
-    date: dateTime,
+    startTime: dateTime,
+    endTime: "",
+    totalTime: "",
     ticket:newTicketClientes
   });
-  //console.log('new ticket  ', newTicket); //nuevo tiquete
   newTicket.save(function (err) {
     if (err){
       return handleError(err);
@@ -119,6 +115,7 @@ router.post('/getTicket', function(req, res) {
     console.log('ya guardo el nuevo tiquete!');
   })
   console.log('nueva fichaaa', newTicketClientes);
+  //falta imprimir la fecha!
   res.send("Su número de tiquete es: " + "<br>" + newTicketClientes);
 
 });
@@ -159,11 +156,7 @@ router.get('/clientPlatformList', function(req, res, next) {
     });
 });
 
-router.post('/clientPlatformList/:id',function (req,res){
-  console.log('Aqui hago la progra del cronometro y la guardo en la base de datos con route params');
-  var routeId = req.params.id;
-  console.log('routeId ', routeId);
-})
+
 
 // Ruta de Credito
 router.get('/clientCreditList', function(req, res, next) {
@@ -178,11 +171,7 @@ router.get('/clientCreditList', function(req, res, next) {
     });
 });
 
-router.post('/clientCreditList/:id',function (req,res){
-  console.log('Aqui hago la progra del cronometro y la guardo en la base de datos con route params');
-  var routeId = req.params.id;
-  console.log('routeId ', routeId);
-})
+
 
 // Ruta de Marchamo
 router.get('/clientMarchamoList', function(req, res, next) {
@@ -197,11 +186,7 @@ router.get('/clientMarchamoList', function(req, res, next) {
     });
 });
 
-router.post('/clientMarchamoList/:id',function (req,res){
-  console.log('Aqui hago la progra del cronometro y la guardo en la base de datos con route params');
-  var routeId = req.params.id;
-  console.log('routeId ', routeId);
-})
+
 
 // Ruta de Personas con discapacidad
 router.get('/clientDisabledPeopleList', function(req, res, next) {
@@ -215,8 +200,3 @@ router.get('/clientDisabledPeopleList', function(req, res, next) {
       });
     });
 });
-router.post('/clientDisabledPeopleList/:id',function (req,res){
-  console.log('Aqui hago la progra del cronometro y la guardo en la base de datos con route params');
-  var routeId = req.params.id;
-  console.log('routeId ', routeId);
-})
