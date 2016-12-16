@@ -34,65 +34,33 @@ block content
               -var attend="No"
             else
               -var attend="Si"
-              
-            if fichas[i].Atendido = True
-              table#tablehi.none(class=fichas[i].Atendido = True ? "" : "in") 
-            else            
-              table.table.table-bordered
-                tr.table-clients
-                  th Id de tiquete
-                  th Tiquete
-                  th Tipo de tiquete
-                  th Atendido 
-                  th Acción
-                  th Timer
-                tr
-                  td #{fichas[i]._id}
-                  td #{fichas[i].ticket}
-                  td #{fichas[i].nombreDeCaja}
-                  td=attend
-                  td 
-                    button.btn.btn-default(id="start", onclick="timer()") Empezar
-                    form(id="changeAttendState", method="post", action="/serviceBoxList/#{fichas[i]._id}")
-                      input.attendBtn(type="submit", name="idFicha", id="stop", value="Terminar")    
-
-                  td 
-                    p 00:00:00
-            -}
+            table.table.table-bordered
+              tr.table-clients
+                th Tiquete
+                th Tipo de tiquete
+                th Atendido 
+                th Acción
+                th Hora inicial
+                th Hora final
+                th total de tiempo
+              tr
+                td #{fichas[i].ticket}
+                td #{fichas[i].nombreDeCaja}
+                td=attend
+                td 
+                  form(id="changeAttendState", method="post", action="/serviceBoxList/#{fichas[i]._id}")
+                    input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender")
+                td hora inicio
+                td hora final
+                td total    
+          -}
+          
     
-        script.
-          var p = document.getElementsByTagName('p')[0];
-          var start = document.getElementById('start');
-          var stop = document.getElementById('stop');
-          var seconds = 0, minutes = 0, hours = 0;
-          var t;
-          var totalTime;
-          
-          function add() {
-            seconds++;
-            if (seconds >= 60) {
-                seconds = 0;
-                minutes++;
-                if (minutes >= 60) {
-                  minutes = 0;
-                  hours++;
-                }
-            }
-            p.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
-
-            timer();
-          }
-          function timer() {
-            t = setTimeout(add, 1000);
-            totalTime = seconds + '  ' + minutes;
             
-            console.log('total ',totalTime);
-          }
-          /* Start button */
-          start.onclick = timer;
-
-          /* Stop button */
-          stop.onclick = function() {
-              clearTimeout(t);
-          }
-          
+            
+            
+            
+    
+        
+        
+            

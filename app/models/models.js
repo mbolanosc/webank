@@ -4,7 +4,9 @@ var Fichas = new Schema({
     nombreDeCaja : String,
     atendido : Boolean,
     tiempoPorVentana : String,
-		date: Date,
+		startDate: Date,
+		endDate:Date,
+		totalTime:String,
 		ticket:String
 
 
