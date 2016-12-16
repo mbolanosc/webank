@@ -38,7 +38,8 @@ var express = require('express'),
       Fichas.find(function(err){
           if (err) return next(err);
           res.render('report', {
-            title: 'Banco de la República Costarricense'
+            title: 'Banco de la República Costarricense',
+            newTicketClientes: newTicketClientes
           });
         });
     });
@@ -110,14 +111,6 @@ var express = require('express'),
     //     });
     // });
 
-      var p = document.getElementsByTagName('p')[0];
-      var start = document.getElementById('start');
-      var stop = document.getElementById('stop');
-      var seconds = 0, minutes = 0, hours = 0;
-      var t;
-      var totalTime;
-
-      console.log("P", p)
       //change the attend state from false to true
       res.redirect('/serviceBoxList');
     })
