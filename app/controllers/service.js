@@ -72,6 +72,7 @@ var express = require('express'),
       }
       var m = addZero(gettingDate.getMinutes());
       console.log('routeId ', routeId);
+
       //find by id so that way i can edit the state
       Fichas.findById(routeId , function(err,docs){
         if(err){
@@ -86,14 +87,28 @@ var express = require('express'),
          var numberEndTime = parseInt(docs.endMinuts);
          var result = numberStartTime - numberEndTime;
          docs.totalTime = result;
-
-
          docs.save(function(err){
            if (err) {
             throw err;
         }
           console.log('update with success!');
         });
+
+        //CONSULTAS
+        Fichas.find(function(err, fichas)	//Busca el modelo dentro del MVC
+          {
+            if (err) return next(err);
+            //Cantidad de clientes atendidos en el día, generales y por ventanilla.
+             var contAttend =1;
+             for(var x=0; x<fichas.length; x++){
+               console.log('T#$#$#', fichas[x].atendido);
+               if(fichas[x].atendido === true){
+                contAttend++;
+               }
+             }
+             console.log('LO QUE EM IMREIDSDAS' ,contAttend);
+
+          });
     });
       res.redirect('/serviceBoxList');
     })
