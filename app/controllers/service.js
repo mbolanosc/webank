@@ -161,14 +161,17 @@ var express = require('express'),
         });
     });
 
-    router.get('/pdfs/:file', function(req, res, next) {
-      var file = req.params.file;
-      console.log('jslagfuiwabfcij', file);
+    var doc = new PDFDocument;
+     doc.pipe(fs.createWriteStream('app/views/pdfs/doc.pdf'));
+     doc.fontSize(25);
+     doc.text('Hola',100,80);
+     doc.end();
+
+    router.get('/pdfs', function(req, res) {
+      console.log("Ruta yeah!!");
+
+      res.setHeader('Content-disposition','attachment; filename = doc.pdf');
+      res.setHeader('Content-type','application/pdf');
+      res.download('app/views/pdfs' + '/doc.pdf');
+
     });
-
-var doc = new PDFDocument;
-doc.pipe(fs.createWriteStream('app/views/pdfs/doc.pdf'));
-doc.fontSize(25);
-doc.text('Hola',100,80);
-
-doc.end();
