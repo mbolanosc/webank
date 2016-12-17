@@ -8,26 +8,9 @@ var express = require('express'),
     arrCredito = [],
     arrMarchamo = [],
     arrDiscapacidad = [],
-    newTicketClientes="",
-    //database thing
-    dateTime = new Date();
-    //interfaz thing
-    var days = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
-    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
+    newTicketClientes="";
 
-    var day = days[ dateTime.getDay() ];
-    var month = months[ dateTime.getMonth() ];
-    var dayNumber = dateTime.getDate();
-    var dayYear = dateTime.getFullYear();
-    //time lapse
-    function addZero(i) {
-      if (i < 10) {
-        i = "0" + i;
-      }
-      return i;
-    }
-    var ticketInitialTime = dateTime.getHours();
-    var m = addZero(dateTime.getMinutes());
+
 
 
 module.exports = function(app) {
@@ -50,11 +33,7 @@ router.get('/', function(req, res, next) {
         arrCredito: arrCredito,
         arrMarchamo: arrMarchamo,
         arrDiscapacidad: arrDiscapacidad,
-        newTicketClientes : newTicketClientes,
-        day:day,
-        month:month,
-        dayNumber:dayNumber,
-        dayYear: dayYear
+        newTicketClientes : newTicketClientes
       });
     });
 });
@@ -69,7 +48,17 @@ router.post('/getTicket', function(req, res) {
   countTicketsDescapacidad = 0,
   typeOfTicket = req.body.ticket;
 
+  var dateTime = new Date();
+  //interfaz thing
 
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  var ticketInitialTime = dateTime.getHours();
+  var m = addZero(dateTime.getMinutes());
 
   //sumar la ficha
   if (typeOfTicket == "Cajas") {
