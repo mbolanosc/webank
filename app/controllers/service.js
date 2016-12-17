@@ -1,3 +1,5 @@
+var PDFDocument = require('pdfkit');
+var fs = require('fs');
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
@@ -143,3 +145,15 @@ var express = require('express'),
           });
         });
     });
+
+    router.get('/pdfs/:file', function(req, res, next) {
+      var file = req.params.file;
+      console.log('jslagfuiwabfcij', file);
+    });
+
+var doc = new PDFDocument;
+doc.pipe(fs.createWriteStream('app/views/pdfs/doc.pdf'));
+doc.fontSize(25);
+doc.text('Hola',100,80);
+
+doc.end();
