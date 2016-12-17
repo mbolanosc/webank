@@ -27,3 +27,41 @@ block content
     div.container
       div.row
         h1 Crédito
+        - var attend = ""
+        - var attendHours = ""
+        -for (var i=0; i< fichas.length;i++){
+          if fichas[i].atendido == false
+            -var attend="No"
+          else
+            -var attend="Si"
+          if fichas[i].endTime == ""
+            - var attendHours = "No se ha atendido aun"
+          else 
+            - var attendHours = fichas[i].endTime + ":" + fichas[i].endMinuts + " horas"
+          
+          if fichas[i].atendido === true
+            table#tableAtendido.none(class=fichas[i].atendido == true ? "" : "in") 
+          else  
+            if fichas[i].nombreDeCaja != "Credito"
+              table#tablehi.none(class=fichas[i].nombreDeCaja != "Credito" ? "" : "in")            
+            else  
+              table.table.table-bordered
+                tr.table-clients
+                  th Tiquete
+                  th Tipo de tiquete
+                  th Atendido 
+                  th Acción
+                  th Hora inicial
+                  th Hora final
+                  th total de tiempo
+                tr
+                  td #{fichas[i].ticket}
+                  td #{fichas[i].nombreDeCaja}
+                  td=attend
+                  td 
+                    form(id="changeAttendState", method="post", action="/serviceCreditList/#{fichas[i]._id}")
+                      input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender")
+                  td #{fichas[i].startTime}:#{fichas[i].initialMinuts}   horas
+                  td=attendHours 
+                  td #{fichas[i].totalTime} minutos
+        -}
