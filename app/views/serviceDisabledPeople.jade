@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  header
+  
+    nav.navbar
+      div.container-fluid
+        div.navbar-header
+          button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#nav1", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="/") Banco de la República Costarricense
+        #nav1.collapse.navbar-collapse
+          ul.nav.navbar-nav.pull-right
+            li.active: a.f-nav.dropdown-toggle( href="/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Lista de Clientes
+              span.caret
+              ul.dropdown-menu
+                li: a(href="serviceBoxList") Lista de Cajas
+                li: a(href="servicePlatformList") Lista de Plataforma
+                li: a(href="serviceCreditList") Lista de Crédito
+                li: a(href="serviceMarchamoList") Lista de Marchamo
+                li: a(href="serviceDisabledPeopleList") Lista de Personas con Discapacidad
+            li: a.f-nav( href="/service") Servicios
+
+    div.container
+      div.row
+        h1 Personas de Discapacidad
+        - var attend = ""
+        - var attendHours = ""
+        -for (var i=0; i< fichas.length;i++){
+          if fichas[i].atendido == false
+            -var attend="No"
+          else
+            -var attend="Si"
+          if fichas[i].endTime == ""
+            - var attendHours = "No se ha atendido aun"
+          else 
+            - var attendHours = fichas[i].endTime + ":" + fichas[i].endMinuts + " horas"
+            
+          if fichas[i].nombreDeCaja != "Discapacidad"
+            table#tablehi.none(class=fichas[i].nombreDeCaja != "Discapacidad" ? "" : "in")            
+          else  
+            table.table.table-bordered
+              tr.table-clients
+                th Tiquete
+                th Tipo de tiquete
+                th Atendido 
+                th Acción
+                th Hora inicial
+                th Hora final
+                th Total de tiempo
+              tr
+                td #{fichas[i].ticket}
+                td #{fichas[i].nombreDeCaja}
+                td=attend
+                td 
+                  form(id="changeAttendState", method="post", action="/serviceDisabledPeopleList/#{fichas[i]._id}")
+                    input.attendBtn(type="submit", name="idFicha", id=fichas[i]._id, value="Atender")
+                td #{fichas[i].startTime}:#{fichas[i].initialMinuts}   horas
+                td=attendHours 
+                td #{fichas[i].totalTime} minutos
+        -}

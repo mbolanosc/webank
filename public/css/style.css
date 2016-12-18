@@ -1,0 +1,129 @@
+body {
+  padding-top: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a, p {
+  color: black;
+}
+
+header {
+  margin-top: -60px;
+}
+
+.navbar {
+  background-color: #3D9938;
+  height: 80px;
+  border-radius: 0px !important;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+#ticket {
+  margin-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.navbar-brand, .f-nav {
+  color: white;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: underline !important;
+  color: white;
+  background-color: #3D9938 !important;
+}
+
+.navbar-brand:focus, .navbar-brand:hover {
+  text-decoration: underline !important;
+  color: white;
+  background-color: #3D9938 !important;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-caption {
+  top: 15em;
+}
+
+.row {
+  margin: auto;
+  text-align: center;
+}
+
+input {
+  background-color: #3D9938;
+  border-color: transparent;
+  border-radius: 5px;
+}
+
+input:hover {
+  background-color: #276124;
+}
+
+.attendBtn {
+  color: white;
+}
+
+.modal-backdrop {
+  z-index: -90 !important;
+}
+
+.dropdownList {
+  padding: 10px 400px !important;
+}
+
+.dropdown-service {
+  margin-left: 26px !important;
+  width: 840px;
+}
+
+
+/*ticket*/
+
+.ticketDisplay {
+  color: black;
+  font-size: 16px;
+  text-decoration: underline;
+  ;
+  text-shadow: none;
+}
+
+
+/*clients list view*/
+
+.table-clients>th {
+  text-align: center;
+}
+
+.date {
+  width: 890px;
+}
+
+#cont-footer {
+  width: 100% !important;
+}
+
+#footer {
+  background-color: #3D9938;
+  padding: 25px 21px;
+}
+
+.footerText {
+  text-align: center;
+  color: white !important;
+}
+
+.pdf {
+  margin-left: 26px !important;
+  width: 840px;
+}
