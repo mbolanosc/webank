@@ -93,3 +93,14 @@ input:hover{
 .date {
     width: 890px;
 }
+
+#footer{
+  background-color: black;
+
+}
+#cont-footer{
+  width: 100% !important;
+}
+#second-footer{
+    background-color: #3D9938;
+}

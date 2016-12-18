@@ -2,7 +2,7 @@ extends layout
 
 block content
   header
-  
+
     nav.navbar
       div.container-fluid
         div.navbar-header
@@ -23,16 +23,17 @@ block content
                 li: a(href="clientMarchamoList") Lista de Marchamo
                 li: a(href="clientDisabledPeopleList") Lista de Personas con Discapacidad
             li: a.f-nav( href="/service") Servicios
-    
+
 
   div#carousel.slide.carousel(data-ride="carousel")
     ol.carousel-indicators
       li.active(data-target="#carousel" data-slide-to="0")
-      
     div.carousel-inner(role="listbox")
       div.item.active
         img(src="img/slide01.jpg" alt="" with="1500px")
         div.carousel-caption  
+          h1 BARECO
+          h4 Tome su ficha selecionando a cual caja quiera ir dependiendo de su transacción.
           form( method="post", id="getYourTicket", action="/getTicket")
             div.row
               select.form-control(name="ticket", id="ticket")
@@ -42,4 +43,20 @@ block content
                 option(value="Marchamo") Marchamo
                 option(value="Discapacidad") Personas con Discapacidad
               input(type="submit", value="Obtener")
-                 
+  
+  footer 
+    div.container(id="cont-footer")
+      div.row(id="footer")
+        div.col-md-4 
+          p hola
+        div.col-md-4 
+          p hola
+        div.col-md-4 
+          p hola
+      div.row(id="second-footer")
+        div.col-md-4 
+          p hola
+        div.col-md-4 
+          p hola
+        div.col-md-4 
+          p hola
