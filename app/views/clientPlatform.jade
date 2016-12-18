@@ -36,19 +36,22 @@ block content
           else
             -var attend="Si"  
 
-          if fichas[i].nombreDeCaja != "Plataforma"
-            table#tablehi.none(class=fichas[i].nombreDeCaja != "Plataforma" ? "" : "in")            
-          else    
-            table.table.table-bordered
-              tr.table-clients
-                th Id de tiquete
-                th Tiquete
-                th Tipo de tiquete
-                th Atendido  
-              tr
-                td #{fichas[i]._id}
-                td #{fichas[i].ticket}
-                td #{fichas[i].nombreDeCaja}
-                td=attend
+          if fichas[i].atendido === true
+            table#tableAtendido.none(class=fichas[i].atendido == true ? "" : "in") 
+          else
+            if fichas[i].nombreDeCaja != "Plataforma"
+              table#tablehi.none(class=fichas[i].nombreDeCaja != "Plataforma" ? "" : "in")            
+            else    
+              table.table.table-bordered
+                tr.table-clients
+                  th Id de tiquete
+                  th Tiquete
+                  th Tipo de tiquete
+                  th Atendido  
+                tr
+                  td #{fichas[i]._id}
+                  td #{fichas[i].ticket}
+                  td #{fichas[i].nombreDeCaja}
+                  td=attend
           -}
         
