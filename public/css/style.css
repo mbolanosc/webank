@@ -14,43 +14,50 @@ header {
 .navbar {
   background-color: #3D9938;
   height: 80px;
+  border-radius: 0px !important;
 }
 
 .container-fluid {
   margin-top: 20px;
 }
 
-#ticket{
-      margin-bottom: 20px;
+#ticket {
+  margin-bottom: 20px;
 }
-.navbar-brand,
-.f-nav{
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.navbar-brand, .f-nav {
   color: white;
 }
+
 .nav>li>a:focus, .nav>li>a:hover {
-    text-decoration: underline !important;
-    color: white;
-    background-color: #3D9938 !important;
+  text-decoration: underline !important;
+  color: white;
+  background-color: #3D9938 !important;
 }
+
 .navbar-brand:focus, .navbar-brand:hover {
   text-decoration: underline !important;
   color: white;
   background-color: #3D9938 !important;
 }
 
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 100%;
-      margin: auto;
-      overflow: hidden;
-  }
-  .carousel-caption {
-    top: 15em;
-  }
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
 
-.row   {
- margin: auto;
- text-align: center;
+.carousel-caption {
+  top: 15em;
+}
+
+.row {
+  margin: auto;
+  text-align: center;
 }
 
 input {
@@ -58,13 +65,16 @@ input {
   border-color: transparent;
   border-radius: 5px;
 }
-input:hover{
+
+input:hover {
   background-color: #276124;
 }
-.attendBtn{
-  color:white;
+
+.attendBtn {
+  color: white;
 }
-.modal-backdrop{
+
+.modal-backdrop {
   z-index: -90 !important;
 }
 
@@ -77,30 +87,43 @@ input:hover{
   width: 840px;
 }
 
+
 /*ticket*/
-.ticketDisplay{
+
+.ticketDisplay {
   color: black;
   font-size: 16px;
-  text-decoration: underline;;
+  text-decoration: underline;
+  ;
   text-shadow: none;
 }
 
+
 /*clients list view*/
-.table-clients > th{
+
+.table-clients>th {
   text-align: center;
 }
 
 .date {
-    width: 890px;
+  width: 890px;
 }
 
-#footer{
-  background-color: black;
-
-}
-#cont-footer{
+#cont-footer {
   width: 100% !important;
 }
-#second-footer{
-    background-color: #3D9938;
+
+#footer {
+  background-color: #3D9938;
+  padding: 25px 21px;
+}
+
+.footerText {
+  text-align: center;
+  color: white !important;
+}
+
+.pdf {
+  margin-left: 26px !important;
+  width: 840px;
 }
