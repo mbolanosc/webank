@@ -20,9 +20,22 @@ header {
   margin-top: 20px;
 }
 
+#ticket{
+      margin-bottom: 20px;
+}
 .navbar-brand,
 .f-nav{
-  color: black;
+  color: white;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: underline !important;
+    color: white;
+    background-color: #3D9938 !important;
+}
+.navbar-brand:focus, .navbar-brand:hover {
+  text-decoration: underline !important;
+  color: white;
+  background-color: #3D9938 !important;
 }
 
 .carousel-inner > .item > img,
@@ -45,7 +58,12 @@ input {
   border-color: transparent;
   border-radius: 5px;
 }
-
+input:hover{
+  background-color: #276124;
+}
+.attendBtn{
+  color:white;
+}
 .modal-backdrop{
   z-index: -90 !important;
 }
